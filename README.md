@@ -14,6 +14,7 @@ git config --global user.email "깃허브 가입 이메일"
 ```bash
 git config --global init.defaultBranch main
 ```
+
 기본 브랜치를 main으로 설정  
 버전에 따라, master가 기본인 설정도 있기 때문에 이를 공통적으로 가져가기 위해서 설정
 
@@ -57,3 +58,38 @@ git status
 ```bash
 git log --oneline
 ```
+
+### Remote Repository
+#### 로컬 -> 원격
+로컬 저장소와 원격 저장소를 연결
+```bash
+git remote add origin URL
+```
+잘연결 되었는지 확인
+
+```bash
+git remote -v
+```
+기록되어 있는 커밋 내역들을 원격저장소로 보내기
+```bash
+git push origin main
+```
+
+#### 원격 -> 로컬
+1. 원격 그 자체를 복제해야 할 때, 
+    > 예시 : `word-relay` 실습 (조원의 시작)
+    
+    ```bash
+    git clone URL
+    ```
+    단! 이미, git init 되어 있는 위치에서 클론하지 않도록 합니다.
+    `ls -a` 했을 때, `.git/` 숨김 폴더가 있는지 주의합니다. (없을 때만 하도록 합니다.)
+
+2. 원격에 올라와 있는 추가적인 커밋 내역을 업데이트해야 할 때, 
+    > 예시 : `word-relay` 실습 (타 조원이 끝말잇기를 추가한 후)
+    ```bash
+    git pull origin main
+    ```
+
+    원격 저장소의 변경사항을 로컬에 동기화 시킬 수가 있습니다
+
